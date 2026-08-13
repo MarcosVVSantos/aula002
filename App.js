@@ -1,11 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Jobs from './components/jobs';
+import { Button } from 'react-native-web';
+import { useState } from 'react';
 
 export default function App() {
+  const [nome, setNome] = useState('Prof° Mario');
+  let img = 'https://sujeitoprogramador.com/steve.png';
+
+  const handleMudar = () => {
+    setNome('Prof° Steve Jobs d+');
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+
+      <Text style={{ color: '#ff0000', fontSize: 25, margin: 15 }}>
+        Programador
+      </Text>
+
+      <Jobs
+        img={img}
+        largura={100}
+        altura={200}
+        fulano="Steve Jobs"
+      />
+
+      <Text style={{ fontSize: 30 }}>
+        {nome}
+      </Text>
+
+      <Button title='Entrar' onPress={handleMudar} />
+
       <StatusBar style="auto" />
+
     </View>
   );
 }
